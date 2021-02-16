@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "684570545054",
+    "firebase_url": "https://millitalk.firebaseio.com",
+    "project_id": "millitalk",
+    "storage_bucket": "millitalk.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:684570545054:android:ccb6ff386439cae7c5248f",
+        "android_client_info": {
+          "package_name": "com.prjun.millitalk"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "684570545054-dpd1cl06rp2u5dqvb2cj4ts4jv3bcoha.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.prjun.millitalk",
+            "certificate_hash": "59005e77d9aa907b4f1979e9c96ea6e618a77cae"
+          }
+        },
+        {
+          "client_id": "684570545054-ove8hdll51cp46teelna3q3pie8fkeb2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB-dFp6MiOG1_HpsZLtZsKZEFOlG9eifMA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "684570545054-ove8hdll51cp46teelna3q3pie8fkeb2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
