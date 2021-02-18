@@ -1,5 +1,6 @@
 <resources>
-    <string name="app_name">StudentHelper</string>
+    <string name="app_name">MilliTalk</string>
     <string name="button">Button</string>
     <string name="todo">TODO</string>
+    <string name="a"><br>개인정보처리방침</br>을 읽었으며 이에대해 동의합니다.</string>
 </resources>

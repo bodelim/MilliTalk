@@ -141,35 +141,33 @@
         app:srcCompat="@drawable/ic_main_profileframe" />
 
     <TextView
-        android:id="@+id/nickname"
+        android:id="@+id/nickProfile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="103dp"
+        android:layout_marginStart="2dp"
         android:layout_marginTop="24dp"
-        android:layout_marginEnd="180dp"
         android:layout_marginBottom="366dp"
         android:fontFamily="@font/bmjua"
         android:text="Nick님의 프로필"
         android:textColor="#000000"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="@+id/imageView5"
-        app:layout_constraintEnd_toEndOf="@+id/imageView5"
-        app:layout_constraintStart_toStartOf="@+id/imageView5"
-        app:layout_constraintTop_toTopOf="@+id/imageView5" />
+        app:layout_constraintStart_toEndOf="@+id/mainProfileFrame"
+        app:layout_constraintTop_toTopOf="@+id/imageView5"
+        app:layout_constraintVertical_bias="0.333" />
 
     <TextView
         android:id="@+id/main_Inform"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
         android:layout_marginTop="4dp"
-        android:layout_marginEnd="18dp"
         android:fontFamily="@font/bmjua"
         android:text="oo초등학교  (12살)"
         android:textColor="#000000"
         android:textSize="11sp"
-        app:layout_constraintEnd_toEndOf="@+id/nickname"
-        app:layout_constraintStart_toStartOf="@+id/nickname"
-        app:layout_constraintTop_toBottomOf="@+id/nickname" />
+        app:layout_constraintStart_toEndOf="@+id/mainProfileFrame"
+        app:layout_constraintTop_toBottomOf="@+id/nickProfile" />
 
     <ImageView
         android:id="@+id/imageView12"

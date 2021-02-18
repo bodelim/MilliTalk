@@ -1,10 +1,11 @@
 package com.prjun.millitalk
 
+import android.app.Activity
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
@@ -15,6 +16,15 @@ import com.google.firebase.auth.GoogleAuthProvider
 import kotlinx.android.synthetic.main.activity_login.*
 
 class loginActivity : AppCompatActivity() {
+
+    /*
+    companion object {
+        var lactivity: Activity? = null
+    }
+
+    var MA = MainActivity.mactivity as MainActivity
+
+     */
 
     private val RC_SIGN_IN = 9001
 
@@ -27,6 +37,12 @@ class loginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
+
+        //lactivity = this@loginActivity
+        //mactivity정의(다른액티비티에서 조종하기위함)
+
+        //MA.finish()
+        //메인액티비티 종료
 
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
             .requestIdToken(getString(R.string.default_web_client_id))
@@ -76,6 +92,7 @@ class loginActivity : AppCompatActivity() {
                     Toast.makeText(this, "로그인을 완료하여 메인으로 이동합니다.", Toast.LENGTH_SHORT).show()
                     val intent = Intent(this, MainActivity::class.java)
                     startActivity(intent)
+                    finish()
 
                 } else {
 
