@@ -1,7 +1,6 @@
 package com.prjun.millitalk
 
 import android.annotation.SuppressLint
-import android.app.Activity
 import android.app.NotificationManager
 import android.app.PendingIntent
 import android.content.Context
@@ -11,6 +10,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.app.NotificationCompat
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
@@ -21,11 +21,11 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.ktx.firestore
-import com.google.firebase.firestore.ktx.toObject
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.messaging.FirebaseMessagingService
 import com.google.firebase.messaging.RemoteMessage
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_user_sign_up.*
 
 
 class MyFirebaseMessagingService: FirebaseMessagingService() {
@@ -77,9 +77,14 @@ class MainActivity : AppCompatActivity() {
 
     val db = Firebase.firestore
 
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+        //다크모드 미적용
 
         //mactivity = this@MainActivity
         //mactivity정의(다른액티비티에서 조종하기위함)
@@ -91,8 +96,7 @@ class MainActivity : AppCompatActivity() {
 
         googleSigninClient = GoogleSignIn.getClient(this, gso)
 
-        firebaseAuth = FirebaseAuth.getInstance();
-
+        firebaseAuth = FirebaseAuth.getInstance()
 
 
         val user = Firebase.auth.currentUser
@@ -110,7 +114,8 @@ class MainActivity : AppCompatActivity() {
             val uid = user.uid
         }
 
-        var FbDoc = db.collection("cities").document()
+        var FbDoc = db.collection("UserInform").document(user?.email.toString())
+
 
 
         nickProfile.setText(user?.displayName+"님의 프로필")
@@ -128,22 +133,21 @@ class MainActivity : AppCompatActivity() {
             finish()
         }
         if(user != null){
-            val intent = Intent(this, userSignUp::class.java)
-            startActivity(intent)
-            Log.d("firestore","firestore: $FbDoc")
-            if(FbDoc != null){
-                //FbDoc.get().addOnSuccessListener { documentSnapshot ->
-                //    val userInform = documentSnapshot.toObject<userData>()
-                //}
-            }
-            else if(FbDoc == null){
-                Toast.makeText(this, "밀리톡 첫 사용을 환영합니다!\n회원가입을 진행합니다.", Toast.LENGTH_LONG).show()
-                val intent = Intent(this, userSignUp::class.java)
-                startActivity(intent)
-                finish()
-
+            FbDoc.get().addOnSuccessListener { documentSnapshot ->
+                val document = documentSnapshot
+                if (document!!.exists()) {
+                    Log.d("Firestore", "Document exists!")
+                } else {
+                    Log.d("Firestore", "Document does not exist!")
+                    Toast.makeText(this, "밀리톡 첫 사용을 환영합니다!\n회원가입을 진행합니다.", Toast.LENGTH_LONG).show()
+                    val intent = Intent(this, userSignUp::class.java)
+                    startActivity(intent)
+                    finish()
+                }
             }
         }
+
+        //https://open.neis.go.kr/hub/schoolInfo?KEY=3fba6a4954ea4992a90d541cf103f654&Type=json&pIndex=1&pSize=10
 
 
     }
