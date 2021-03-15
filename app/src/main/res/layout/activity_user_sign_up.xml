@@ -46,11 +46,12 @@
         android:id="@+id/userBirth_frame"
         android:layout_width="250dp"
         android:layout_height="45dp"
-        app:layout_constraintBottom_toBottomOf="@+id/signupBirthText"
-        app:layout_constraintEnd_toEndOf="@+id/signupBirthText"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/signupBirthText"
-        app:layout_constraintTop_toTopOf="@+id/signupBirthText"
+        app:layout_constraintBottom_toBottomOf="@+id/signupBirth_YY"
+        app:layout_constraintEnd_toEndOf="@+id/signupBirth_YY"
+        app:layout_constraintHorizontal_bias="0.005"
+        app:layout_constraintStart_toStartOf="@+id/signupBirth_YY"
+        app:layout_constraintTop_toTopOf="@+id/signupBirth_YY"
+        app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/signupedittextframe" />
 
     <TextView
@@ -90,6 +91,7 @@
         android:layout_height="52dp"
         android:layout_marginTop="280dp"
         android:background="@drawable/color_change"
+        android:backgroundTint="#8866D6"
         android:fontFamily="@font/bmjua"
         android:text="회원가입"
         android:textColor="#FFFFFF"
@@ -125,15 +127,14 @@
         app:layout_constraintEnd_toEndOf="@+id/signupNickText"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/signupNickText"
-        app:layout_constraintTop_toBottomOf="@+id/signupBirthText" />
+        app:layout_constraintTop_toBottomOf="@+id/signupBirth_YY" />
 
     <Button
         android:id="@+id/schoolSearchBtn"
         android:layout_width="90dp"
-        android:layout_height="45dp"
+        android:layout_height="50dp"
         android:layout_marginStart="2dp"
-        android:layout_marginTop="18dp"
-        android:background="#8866D6"
+        android:backgroundTint="#8866D6"
         android:fontFamily="@font/bmjua"
         android:text="학교검색"
         android:textColor="#FFFFFF"
@@ -188,23 +189,23 @@
         android:layout_width="45dp"
         android:layout_height="45dp"
         android:layout_marginEnd="1dp"
-        app:layout_constraintBottom_toBottomOf="@+id/signupBirthText"
-        app:layout_constraintEnd_toStartOf="@+id/signupBirthText"
-        app:layout_constraintTop_toTopOf="@+id/signupBirthText"
+        app:layout_constraintBottom_toBottomOf="@+id/signupBirth_YY"
+        app:layout_constraintEnd_toStartOf="@+id/signupBirth_YY"
+        app:layout_constraintTop_toTopOf="@+id/signupBirth_YY"
         app:srcCompat="@drawable/userbirth_icon" />
 
     <EditText
-        android:id="@+id/signupBirthText"
-        android:layout_width="250dp"
+        android:id="@+id/signupBirth_YY"
+        android:layout_width="60dp"
         android:layout_height="45dp"
         android:layout_marginTop="25dp"
-        android:ems="10"
-        android:hint="생년월일(ex: 2000/07/29)"
+        android:ems="4"
+        android:hint="나이"
         android:inputType="textPersonName"
         android:textColor="#000000"
         android:textColorHint="#77000000"
         app:layout_constraintEnd_toEndOf="@+id/signupNickText"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/signupNickText"
         app:layout_constraintTop_toBottomOf="@+id/signupNickText" />
 
@@ -212,13 +213,58 @@
         android:id="@+id/schoolSpinner"
         android:layout_width="250dp"
         android:layout_height="20dp"
-        android:layout_marginTop="2dp"
+        android:layout_marginTop="8dp"
         android:background="@drawable/spinner_background"
-        android:textColor="#BABABA"
         android:spinnerMode="dropdown"
+        android:textColor="#BABABA"
         app:layout_constraintEnd_toEndOf="@+id/schoolSearchBtn"
-        app:layout_constraintHorizontal_bias="0.937"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/userSchool_icon"
         app:layout_constraintTop_toBottomOf="@+id/signupSchoolNameText" />
+
+    <TextView
+        android:id="@+id/mySchool"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="11dp"
+        android:layout_marginEnd="3dp"
+        android:fontFamily="@font/bmjua"
+        android:text="내 학교:"
+        android:textColor="#000000"
+        app:layout_constraintEnd_toEndOf="@+id/userSchool_icon"
+        app:layout_constraintEnd_toStartOf="@+id/schoolSpinner"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/userSchool_icon"
+        app:layout_constraintTop_toBottomOf="@+id/userSchool_icon" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:layout_marginStart="230dp"
+        android:layout_marginTop="10dp"
+        android:rotation="180"
+        app:layout_constraintBottom_toBottomOf="@+id/schoolSpinner"
+        app:layout_constraintEnd_toEndOf="@+id/schoolSpinner"
+        app:layout_constraintStart_toStartOf="@+id/schoolSpinner"
+        app:layout_constraintTop_toTopOf="@+id/schoolSpinner"
+        app:srcCompat="@drawable/spinner_triangle" />
+
+    <Spinner
+        android:id="@+id/Birth_MM"
+        android:layout_width="90dp"
+        android:layout_height="45dp"
+        app:layout_constraintBottom_toBottomOf="@+id/userBirth_frame"
+        app:layout_constraintStart_toEndOf="@+id/signupBirth_YY"
+        app:layout_constraintTop_toTopOf="@+id/userBirth_frame" />
+
+    <Spinner
+        android:id="@+id/Birth_DD"
+        android:layout_width="100dp"
+        android:layout_height="45dp"
+        app:layout_constraintBottom_toBottomOf="@+id/userBirth_frame"
+        app:layout_constraintStart_toEndOf="@+id/Birth_MM"
+        app:layout_constraintTop_toTopOf="@+id/userBirth_frame"
+        app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

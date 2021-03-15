@@ -14,7 +14,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MilliTalk">
-        <activity android:name=".userSignUp"></activity>
+        <activity android:name=".SchoolSearch"></activity>
+        <activity android:name=".userSignUp" />
         <activity android:name=".loginActivity" />
 
         <service

@@ -7,6 +7,7 @@ import android.content.Context
 import android.content.Intent
 import android.media.RingtoneManager
 import android.os.Bundle
+import android.service.autofill.UserData
 import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -21,11 +22,13 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.firestore.ktx.toObject
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.messaging.FirebaseMessagingService
 import com.google.firebase.messaging.RemoteMessage
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_user_sign_up.*
+import java.util.*
 
 
 class MyFirebaseMessagingService: FirebaseMessagingService() {
@@ -115,10 +118,10 @@ class MainActivity : AppCompatActivity() {
         }
 
         var FbDoc = db.collection("UserInform").document(user?.email.toString())
-
-
-
-        nickProfile.setText(user?.displayName+"님의 프로필")
+        FbDoc.get().addOnSuccessListener { documentSnapshot ->
+            var _UserData = documentSnapshot.toObject<userData>()
+            nickProfile.setText(_UserData?.nick+"님의 프로필")
+        }
 
         /*
         if(currentUser != null){
